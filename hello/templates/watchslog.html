@@ -1,0 +1,260 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Watchs</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link href="{% static 'style.css' %}" rel="stylesheet"> 
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <!-- Responsive-->
+      <link href="{% static 'css/responsive.css' %}" rel="stylesheet"> 
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+      <!-- owl stylesheets --> 
+      <link rel="stylesheet" href="css/owl.carousel.min.css">
+      <link rel="stylesheet" href="css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <style>
+         .cart-item-bor{
+             border:2px solid white;
+         }
+         .img-cart{
+             height: 100px;
+             width: 100px; 
+         }
+         .item-details{
+             color: white;
+         }
+         .quantity-btn{
+             width: 30px;
+             border-radius: 25%;
+             background-color: red;
+             color: white;
+         }
+         .remove-btn{
+             position: relative;
+             left: 45%;
+             width: 100px;
+             border-radius: 25%;
+             background-color: red;
+             color: white;
+         }
+         .Total{
+             color:white;
+             font-size: 20px;
+             position: relative;
+             left: 44%;
+         }
+       </style>
+       <style>
+         .message {
+             position: fixed;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%);
+             background-color: rgba(0, 0, 0, 0.7);
+             color: white;
+             padding: 20px;
+             border-radius: 5px;
+             display: none; /* Initially hidden */
+         }
+     </style>
+   </head>
+   <body>
+      <!-- header section start -->
+      <div class="header_section" style="background-image: url({% static 'img/banner-bg.png' %})">
+         <div class="header_main" style="background-image: url({% static 'img/header-bg.png' %})">
+            <div class="mobile_menu">
+               <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                  <div class="logo_mobile"><a href="http://127.0.0.1:8000/homelog/"><img src="{% static 'img/logo.png' %}"></a></div>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                     <ul class="navbar-nav">
+                        <li class="nav-item active">
+                           <a class="nav-link" href="http://127.0.0.1:8000/homelog/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="http://127.0.0.1:8000/aboutlog/">About</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="http://127.0.0.1:8000/shoplog/">Watchs</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link " href="http://127.0.0.1:8000/reviewlog/">Testimonial</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link " href="http://127.0.0.1:8000/contactlog/">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link " href="#"><img src="{% static 'img/search-icon.png' %}"></a>
+                        </li>
+                     </ul>
+                  </div>
+               </nav>
+            </div>
+            <div class="container-fluid">
+               <div class="logo"><a href="http://127.0.0.1:8000/homelog/" style="font-size: 25px;">WatchVista</a></div>
+               <div class="menu_main">
+                  <ul>
+                     <li><a href="http://127.0.0.1:8000/homelog/">Home</a></li>
+                     <li><a href="http://127.0.0.1:8000/aboutlog/">About</a></li>
+                     <li class="active"><a href="http://127.0.0.1:8000/shoplog/">Watchs</a></li>
+                     <li><a href="http://127.0.0.1:8000/reviewlog/">Testimonial</a></li>
+                     <li><a href="http://127.0.0.1:8000/contactlog/">Contact us</a></li>
+                     <li><a href="http://127.0.0.1:8000/">Logout</a></li>
+                     <li><a href="http://127.0.0.1:8000/cart/"><img style="width: 25px;" src="{% static 'img/cart-icon.webp' %}"></a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- header section end -->
+      <!-- background bg start -->
+      <div class="background_bg" style="background-image: url({% static 'img/background-bg.png' %})">
+         <!-- watchs section start -->
+         <div class="watchs_section layout_padding">
+            <div class="container">
+               <h1 class="watchs_taital">01<br>Our Watchs</h1>
+               <div class="watchs_section_2">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="image_1"><img src="{% static 'img/img-1.png' %}"></div>
+                     </div>
+                     <div class="col-md-6">
+                        <h4 class="uni_text">Analog Watch</h4>
+                        <p class="watchs_text">Analog watches are timeless timepieces that display the current time using hour, minute, and sometimes second hands on a dial marked with numbers or hour markers. Unlike digital watches, which use electronic displays, analog watches rely on mechanical movements powered by gears and springs. They often feature classic designs with various styles of hands and dials, ranging from sleek and minimalist to ornate and decorative. Analog watches are valued for their craftsmanship, elegance, and the traditional charm they bring to any ensemble or occasion.</p>
+                        <h4 class="rate_text"><span style="color: #b60213;">₹</span> 3999</h4>
+                        <form method="post" action="{% url 'add_to_cart' %}">
+                           {% csrf_token %}
+                           <input type="hidden" name="product_id" value="Analog Watch">
+                           <input type="hidden" name="image" value="{% static 'img/img-1.png' %}">
+                           <input type="hidden" name="name" value="Analog Watch">
+                           <input type="hidden" name="price" value="3999">
+                           <button id="buy_now_btn" style="width:110px; height: 40px; background-color:red; border-radius:20px; color:white;">Buy Now</button>
+                       </form>
+                     </div>
+                  </div>
+               </div>
+               <div class="watchs_section_3">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <h4 class="uni_text">Digital Watch</h4>
+                        <p class="watchs_text">Digital watches are modern timepieces that display the current time in numerical format using electronic displays, typically LED or LCD screens. Instead of traditional hour and minute hands, digital watches show time digitally through digits that change instantaneously. They often come equipped with additional features such as alarms, timers, stopwatches, and sometimes even fitness tracking capabilities. Digital watches are known for their accuracy, functionality, and practicality, making them popular choices for everyday wear, sports activities, and outdoor adventures.</p>
+                        <h4 class="rate_text"><span style="color: #b60213;">₹</span> 4999</h4>
+                        <form method="post" action="{% url 'add_to_cart' %}">
+                           {% csrf_token %}
+                           <input type="hidden" name="product_id" value="Dogital Watch">
+                           <input type="hidden" name="image" value="{% static 'img/img-2.png' %}">
+                           <input type="hidden" name="name" value="Digital Watch">
+                           <input type="hidden" name="price" value="4999">
+                           <button id="buy_now_btn" style="width:110px; height: 40px; background-color:red; border-radius:20px; color:white;" onclick="alert("Item added to cart")">Buy Now</button>
+                       </form>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="image_2"><img src="{% static 'img/img-2.png' %}"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- watchs section end -->
+      </div>
+      <div id="message" class="message"></div>
+
+      <!-- background bg end -->
+      <!-- footer section start -->
+      <div class="footer_section layout_padding" style="background-image: url({% static 'img/footer-bg.png' %})">
+         <div class="container">
+            <h3 class="follow_text">Follow Now</h3>
+            <div class="social_icon">
+               <ul>
+                  <li><a href="#"><img src="{% static 'img/fb-icon.png' %}"></a></li>
+                  <li><a href="#"><img src="{% static 'img/twitter-icon.png' %}"></a></li>
+                  <li><a href="#"><img src="{% static 'img/linkedin-icon.png' %}"></a></li>
+                  <li><a href="#"><img src="{% static 'img/instagram-icon.png' %}"></a></li>
+                  <li><a href="#"><img src="{% static 'img/youtub-icon.png' %}"></a></li>
+               </ul>
+            </div>
+            <div class="location_main">
+               <div class="location_left">
+                  <div class="call_text"><a href="#"><img src="{% static 'img/map-icon.png' %}"><span class="call_padding">Location</span></a></div>
+               </div>
+               <div class="location_middle">
+                  <div class="call_text"><a href="#"><img src="{% static 'img/mail-icon.png' %}"><span class="call_padding">demo@gmail.com</span></a></div>
+               </div>
+               <div class="location_right">
+                  <div class="call_text"><a href="#"><img src="{% static 'img/call-icon.png' %}"><span class="call_padding">Call +01 1234567890</span></a></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- footer section end -->
+      <!-- copyright section start -->
+      <div class="copyright_section">
+         <div class="container">
+            <p class="copyright_text">2020</p>
+         </div>
+      </div>
+      <!-- copyright section end -->
+      <!-- Javascript files-->
+      <script>
+         document.getElementById('buy_now_form').addEventListener('submit', function(event) {
+             // Prevent the form from submitting normally
+             event.preventDefault();
+             // Submit the form via AJAX
+             var formData = new FormData(this);
+             var xhr = new XMLHttpRequest();
+             xhr.open('POST', this.action);
+             xhr.setRequestHeader('X-CSRFToken', '{{ csrf_token }}');
+             xhr.onload = function() {
+                 if (xhr.status === 200) {
+                     // Show the message
+                     document.getElementById('message').innerText = 'Item added to cart';
+                     document.getElementById('message').style.display = 'block';
+                     // Hide the message after 3 seconds
+                     setTimeout(function() {
+                         document.getElementById('message').style.display = 'none';
+                     }, 3000);
+                 } else {
+                     console.error('Error adding item to cart:', xhr.responseText);
+                 }
+             };
+             xhr.send(formData);
+         });
+     </script>
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      <!-- javascript --> 
+      <script src="js/owl.carousel.js"></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>    
+   </body>
+</html>

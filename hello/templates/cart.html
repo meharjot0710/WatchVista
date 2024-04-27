@@ -1,0 +1,335 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <!-- site metas -->
+    <title>Watchs</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- bootstrap css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/bootstrap.min.css' %}"
+    />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <!-- style css -->
+    <link href="{% static 'style.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!-- Responsive-->
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
+    <!-- Tweaks for older IEs-->
+    <link
+      rel="stylesheet"
+      href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+    />
+    <!-- fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- owl stylesheets -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+      media="screen"
+    />
+    <style>
+      .cart-item-bor {
+        border: 2px solid white;
+      }
+      .img-cart {
+        height: 100px;
+        width: 100px;
+        object-fit: scale-down;
+      }
+      .item-details {
+        color: white;
+      }
+      .quantity-btn {
+        width: 30px;
+        border-radius: 25%;
+        background-color: red;
+        color: white;
+      }
+      .remove-btn {
+        position: relative;
+        left: 45%;
+        width: 100px;
+        border-radius: 25%;
+        background-color: red;
+        color: white;
+      }
+      .Total {
+        color: white;
+        font-size: 20px;
+        position: relative;
+        left: 44%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header section start -->
+    <div
+      class="header_section"
+      style="background-image: url({% static 'img/banner-bg.png'%})"
+    >
+      <div
+        class="header_main"
+        style="background-image: url({% static 'img/header-bg.png'%})"
+      >
+        <div class="mobile_menu">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="logo_mobile">
+              <a href="http://127.0.0.1:8000/homelog/"
+                ><img src="{% static 'img/logo.png' %}"
+              /></a>
+            </div>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="http://127.0.0.1:8000/homelog/"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://127.0.0.1:8000/aboutlog/"
+                    >About</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://127.0.0.1:8000/shoplog/"
+                    >Watchs</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://127.0.0.1:8000/reviewlog/"
+                    >Testimonial</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://127.0.0.1:8000/contactlog/"
+                    >Contact</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#"
+                    ><img src="{% static 'img/search-icon.png' %}"
+                  /></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="container-fluid">
+          <div class="logo">
+            <a href="http://127.0.0.1:8000/homelog/" style="font-size: 25px"
+              >WatchVista</a
+            >
+          </div>
+          <div class="menu_main">
+            <ul>
+              <li><a href="http://127.0.0.1:8000/homelog/">Home</a></li>
+              <li><a href="http://127.0.0.1:8000/aboutlog/">About</a></li>
+              <li><a href="http://127.0.0.1:8000/shoplog/">Watchs</a></li>
+              <li>
+                <a href="http://127.0.0.1:8000/reviewlog/">Testimonial</a>
+              </li>
+              <li>
+                <a href="http://127.0.0.1:8000/contactlog/">Contact us</a>
+              </li>
+              <li><a href="http://127.0.0.1:8000/">Logout</a></li>
+              <li class="active">
+                <a href="http://127.0.0.1:8000/cart/"
+                  ><img
+                    style="width: 25px"
+                    src="{% static 'img/cart-icon.webp' %}"
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br />
+    <h1 style="color: white; left: 43%; font-size: 30px">Shopping Cart</h1>
+    <section class="py-5">
+      <div class="container px-4 px-lg-5 mt-5">
+        <div id="cart-items" style="border: 2px solid white; color: white">
+          <img
+            src="{{ item.image.url }}"
+            alt="{{ item.name }}"
+            style="width: 100px"
+          />
+          {% for item in cart_items %}
+          <br />
+          <img
+            src="{{ item.image.url }}"
+            alt="{{ item.name }}"
+            style="width: 200px"
+          />
+          <div style="display: inline-block; position: relative; left: 20px">
+            {{ item.name }} - Price : {{ item.price }} - Quantity:
+            <form method="post" action="{% url 'update_quantity' item.id %}">
+              {% csrf_token %}
+              <input type="hidden" name="action" value="decrease" />
+              <button
+                type="submit"
+                style="
+                  display: inline-block;
+                  position: relative;
+                  left: 15px;
+                  top: 25px;
+                  width: 30px;
+                  background-color: red;
+                  border-radius: 50%;
+                  color: white;
+                "
+              >
+                -
+              </button>
+            </form>
+            &emsp;&emsp;&emsp;&emsp;&emsp;{{ item.quantity }}
+            <form method="post" action="{% url 'update_quantity' item.id %}">
+              {% csrf_token %}
+              <input type="hidden" name="action" value="increase" />
+              <button
+                type="submit"
+                style="
+                  display: inline-block;
+                  position: relative;
+                  left: 100px;
+                  bottom: 25px;
+                  width: 30px;
+                  background-color: red;
+                  border-radius: 50%;
+                  color: white;
+                "
+              >
+                +
+              </button>
+            </form>
+          </div>
+          <br /><br /><br />
+          <form method="post" action="{% url 'remove_from_cart' item.id %}">
+            {% csrf_token %}
+            <button
+              type="submit"
+              style="
+                display: inline-block;
+                position: relative;
+                left: 900px;
+                bottom: 100px;
+                width: 100px;
+                background-color: red;
+                border-radius: 50%;
+                color: white;
+              "
+            >
+              Remove
+            </button>
+          </form>
+          {% endfor %}
+        </div>
+      </div>
+      <br /><br /><br />
+      <div style="position: relative; color: white; left: 43%; font-size: 20px">
+        Total Price: {{ total_price }}
+      </div>
+    </section>
+    <div
+      class="footer_section layout_padding"
+      style="background-image: url({% static 'img/footer-bg.png'%})"
+    >
+      <div class="container">
+        <h3 class="follow_text">Follow Now</h3>
+        <div class="social_icon">
+          <ul>
+            <li>
+              <a href="#"><img src="{% static 'img/fb-icon.png' %}" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="{% static 'img/twitter-icon.png' %}" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="{% static 'img/linkedin-icon.png' %}" /></a>
+            </li>
+            <li>
+              <a href="#"
+                ><img src="{% static 'img/instagram-icon.png' %}"
+              /></a>
+            </li>
+            <li>
+              <a href="#"><img src="{% static 'img/youtub-icon.png' %}" /></a>
+            </li>
+          </ul>
+        </div>
+        <div class="location_main">
+          <div class="location_left">
+            <div class="call_text">
+              <a href="#"
+                ><img src="{% static 'img/map-icon.png' %}" /><span
+                  class="call_padding"
+                  >Location</span
+                ></a
+              >
+            </div>
+          </div>
+          <div class="location_middle">
+            <div class="call_text">
+              <a href="#"
+                ><img src="{% static 'img/mail-icon.png' %}" /><span
+                  class="call_padding"
+                  >demo@gmail.com</span
+                ></a
+              >
+            </div>
+          </div>
+          <div class="location_right">
+            <div class="call_text">
+              <a href="#"
+                ><img src="{% static 'img/call-icon.png' %}" /><span
+                  class="call_padding"
+                  >Call +01 1234567890</span
+                ></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer section end -->
+    <!-- copyright section start -->
+    <div class="copyright_section">
+      <div class="container">
+        <p class="copyright_text">2020</p>
+      </div>
+    </div>
+  </body>
+</html>
