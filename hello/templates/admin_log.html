@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Uoni</title>
+      <title>WatchVista</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -74,11 +74,11 @@
               <div class="menu_main">
                  <ul>
                     <li><a href="http://127.0.0.1:8000/">Home</a></li>
-                    <li class="active"><a href="http://127.0.0.1:8000/about/">About</a></li>
+                    <li><a href="http://127.0.0.1:8000/about/">About</a></li>
                     <li><a href="http://127.0.0.1:8000/shop/">Watchs</a></li>
                     <li><a href="http://127.0.0.1:8000/review/">Testimonial</a></li>
                     <li><a href="http://127.0.0.1:8000/contact/">Contact us</a></li>
-                    <li><a href="http://127.0.0.1:8000/login/">Login</a></li>
+                    <li class="active"><a href="http://127.0.0.1:8000/login/">Login</a></li>
                     <li><a href="http://127.0.0.1:8000/signup/">SignUp</a></li>
                     <li><a href="http://127.0.0.1:8000/login/"><img style="width: 25px;" src="{% static 'img/cart-icon.webp' %}"></a></li>
                  </ul>
@@ -87,8 +87,20 @@
         </div>
      </div>
       <br><br><br><br><br><br><br>
-    <h1 style="color:white;">Admin Login</h1>
-
+    <h1 style="color: white; left: 44%; font-size:30px;">Admin Login</h1>
+    {% if error_message %}
+    <p style="color:white; position: relative; left: 42%; font-size:20px;">{{ error_message }}</p>
+{% endif %}
+<form method="post">
+    <p>{% csrf_token %}</p>
+    <div style="color:white; position: relative; left: 35%; font-size:20px;">Username</div>
+    <input type="text" name="username" style="position:relative; left:35%; width:27%; background-color:transparent; border:0px solid white; border-bottom:2px solid white; color:white;"><br><br>
+    <div style="color:white; position: relative; left: 35%; font-size:20px;">Password</div>
+    <input type="text" name="password" style="position:relative; left:35%; width:27%; background-color:transparent; border:0px solid white; border-bottom:2px solid white; color:white;"><br><br>
+     <br>
+     <a href="http://127.0.0.1:8000/adsignup/" style="color:white; position:relative; left: 47%;" ><h4 style="color:red;" onmouseover="this.style.color='white'" onmouseout="this.style.color='red'">Admin signup<h2></a><br>
+    <button type="submit" style="position:relative; width:150px; height:35px; border-radius:50%; background-color:red; color:white; left: 45%;">Login</button>
+</form>
     <div class="footer_section layout_padding" style="background-image: url({% static 'img/footer-bg.png' %})">
         <div class="container">
            <h3 class="follow_text">Follow Now</h3>

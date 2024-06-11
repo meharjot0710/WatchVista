@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <!-- site metas -->
-    <title>Watchs</title>
+    <title>WatchVista</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -179,6 +179,11 @@
     </div>
     <br /><br /><br /><br /><br /><br /><br />
     <h1 style="color: white; left: 43%; font-size: 30px">Shopping Cart</h1>
+    {% if message %}
+<div class="alert alert-success" role="alert">
+    {{ message }}
+</div>
+{% endif %}
     <section class="py-5">
       <div class="container px-4 px-lg-5 mt-5">
         <div id="cart-items" style="border: 2px solid white; color: white">
@@ -262,6 +267,19 @@
       <div style="position: relative; color: white; left: 43%; font-size: 20px">
         Total Price: {{ total_price }}
       </div>
+      
+      <form method="post" action="{% url 'cart' %}">
+        {% csrf_token %}
+        {% for product in cart_items %}
+            <input type="hidden" name="product_name" value="{{ product.name }}">
+            <input type="hidden" name="quantity" value={{ product.quantity }}>
+            <input type="hidden" name="price" value={{ total_price }}>
+        {% endfor %}
+        <input type="hidden" name="name" value={{ username }}>
+        <h2 style="color: white; font-size:20px; left: 10%;">Address</h2>
+        <input type="text" name="address" style="position:relative; left:10%; width:27%; background-color:transparent; border:0px solid white; border-bottom:2px solid white; color:white;"><br><br>
+        <button type="submit" style="position:relative; width:150px; height:35px; background-color:red; color:white; left: 45%; top: 20px; border:2px solid white;">Place Order</button>
+      </form>
     </section>
     <div
       class="footer_section layout_padding"

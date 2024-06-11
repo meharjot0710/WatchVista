@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Uoni</title>
+      <title>WatchVista</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -122,35 +122,33 @@
          <div class="watchs_section layout_padding">
             <div class="container">
                <h1 class="watchs_taital">01<br>Our Watchs</h1>
+    <br><br><br><br><br><br><br>
                <div class="watchs_section_2">
                   <div class="row">
-                     <div class="col-md-6">
-                        <div class="image_1"><img src="{% static 'img/img-1.png' %}"></div>
-                     </div>
-                     <div class="col-md-6">
-                        <h4 class="uni_text">Analog Watch</h4>
-                        <p class="watchs_text">Analog watches are timeless timepieces that display the current time using hour, minute, and sometimes second hands on a dial marked with numbers or hour markers. Unlike digital watches, which use electronic displays, analog watches rely on mechanical movements powered by gears and springs. They often feature classic designs with various styles of hands and dials, ranging from sleek and minimalist to ornate and decorative. Analog watches are valued for their craftsmanship, elegance, and the traditional charm they bring to any ensemble or occasion.</p>
-                        <h4 class="rate_text"><span style="color: #b60213;">$</span>100</h4>
-                        <div class="read_bt1"><a href="http://127.0.0.1:8000/shop/">Buy Now</a></div>
-                     </div>
-                  </div>
+                     {% for product in products %}
+            <div style="position: relative; width:90%; height:200px; border: 2px solid white; left:50px;">
+               <div style="position: relative; width:15%; height:160px; border: 2px solid white; left:10px; top:20px; overflow: hidden;">
+                  <img src="{{ product.image.url }}" style="width: 100%; height: auto;">
+              </div>              
+               <div style="position: relative; left:280px; top:-130px; color:white; font-size: 22px;">
+                  {{ product.name }}
                </div>
-               <div class="watchs_section_3">
-                  <div class="row">
-                     <div class="col-md-6">
-                        <h4 class="uni_text">Digital Watch</h4>
-                        <p class="watchs_text">Digital watches are modern timepieces that display the current time in numerical format using electronic displays, typically LED or LCD screens. Instead of traditional hour and minute hands, digital watches show time digitally through digits that change instantaneously. They often come equipped with additional features such as alarms, timers, stopwatches, and sometimes even fitness tracking capabilities. Digital watches are known for their accuracy, functionality, and practicality, making them popular choices for everyday wear, sports activities, and outdoor adventures.p</p>
-                        <h4 class="rate_text"><span style="color: #b60213;">$</span>100</h4>
-                        <div class="read_bt1"><a href="http://127.0.0.1:8000/shop/">Buy Now</a></div>
-                     </div>
-                     <div class="col-md-6">
-                        <div class="image_2"><img src="{% static 'img/img-2.png' %}"></div>
-                     </div>
-                  </div>
+               <div style="position: relative; left:280px; top:-130px; color:white; font-size: 17px;">
+                  {{ product.description }}
                </div>
-               <div class="seemore_bt"><a href="http://127.0.0.1:8000/shop/">See More</a></div>
+               <div style="position: relative; left:280px; top:-130px; color:white; font-size: 17px;">
+                  ₹ {{ product.price }}
+               </div>
+               <form method="post" action="{% url 'login' %}">
+                  {% csrf_token %}
+                  <input type="hidden" name="product_id" value="{{ product.name }}">
+                  <input type="hidden" name="image" value="{{ product.image.url }}">
+                  <input type="hidden" name="name" value="{{ product.name }}">
+                  <input type="hidden" name="price" value={{ product.price }}>
+                  <button id="buy_now_btn" style="position:relative; width:150px; height:35px;  background-color:red; color:white; left: 84%; bottom: 195px;">Buy Now</button>
+              </form>
             </div>
-         </div>
+        {% endfor %}
          <!-- watchs section end -->
          <!-- about section start -->
          <div class="about_section layout_padding">
